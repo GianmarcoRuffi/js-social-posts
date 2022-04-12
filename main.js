@@ -147,4 +147,8 @@ console.log(likes);
 
 const likesArray = [];
 
-likes.forEach((element, index) => {});
+likes.forEach((element) => {
+
+    like.addEventListener('click', function)
+
+});
