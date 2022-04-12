@@ -85,7 +85,7 @@ const posts = [
 
 document.getElementById("container").innerHTML;
 
-function renderPosts(selection) {
+function renderPosts(cards) {
   posts.forEach((element, index) => {
     document.getElementById("container").innerHTML += ` <div class="post">
     <div class="post__header">
@@ -130,7 +130,7 @@ function renderPosts(selection) {
       `;
   });
 
-  console.log(selection);
+  console.log(cards);
 }
 
 renderPosts();
