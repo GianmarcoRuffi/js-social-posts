@@ -83,7 +83,11 @@ const posts = [
   },
 ];
 
+// Get container
+
 document.getElementById("container").innerHTML;
+
+// Creazione funzione per renderizzare le cards
 
 function renderPosts(cards) {
   posts.forEach((element, index) => {
@@ -133,4 +137,10 @@ function renderPosts(cards) {
   console.log(cards);
 }
 
+// Chiamata della funzione
+
 renderPosts();
+
+// Seleziono i bottoni "Like" nelle cards
+
+const likes = document.querySelectorAll("[like-button]");
