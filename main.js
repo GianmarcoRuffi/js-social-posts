@@ -144,3 +144,7 @@ renderPosts();
 const likes = document.querySelectorAll(".like-button");
 
 console.log(likes);
+
+const likesArray = [];
+
+likes.forEach((element, index) => {});
