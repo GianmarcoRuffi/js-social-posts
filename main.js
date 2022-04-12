@@ -133,8 +133,6 @@ function renderPosts(cards) {
   </div>
       `;
   });
-
-  console.log(cards);
 }
 
 // Chiamata della funzione
