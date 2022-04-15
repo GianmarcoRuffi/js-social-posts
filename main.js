@@ -147,8 +147,14 @@ console.log(likes);
 
 const likesArray = [];
 
-likes.forEach((element) => {
+// Funzione per aggiungere i Mi Piace
 
-    like.addEventListener('click', function)
+function thumbsUp() {
+  likes.forEach((likes) => {
+    likes.addEventListener("click", function () {
+      likes.classList.add("like-button--liked");
+    });
+  });
+}
 
-});
+thumbsUp();
