@@ -81,6 +81,19 @@ const posts = [
     likes: 95,
     created: "2021-03-05",
   },
+
+  {
+    id: 6,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=24",
+    author: {
+      name: "Riker Maloney",
+      image: null,
+    },
+    likes: 13,
+    created: "2021-01-08",
+  },
 ];
 
 // Get container
@@ -97,8 +110,14 @@ function renderPosts(cards) {
         <div class="post-meta__icon">
           <img
             class="profile-pic"
-            src="${element.author.image}"
-            alt="Phil Mangione"
+            src="${
+              element.author.image != null
+                ? element.author.image
+                : "https://robohash.org/" +
+                  element.author.name.replace(" ", "_") +
+                  "?set=set4"
+            }"
+            alt="${element.author.name}"
           />
         </div>
         <div class="post-meta__data">
@@ -116,7 +135,9 @@ function renderPosts(cards) {
     <div class="post__footer">
       <div class="likes js-likes">
         <div class="likes__cta">
-          <a class="like-button js-like-button" href="#" data-postid="${element.id}">
+          <a class="like-button js-like-button" href="#" data-postid="${
+            element.id
+          }">
             <i
               class="like-button__icon fas fa-thumbs-up"
               aria-hidden="true"
@@ -126,7 +147,9 @@ function renderPosts(cards) {
         </div>
         <div class="likes__counter">
           Piace a
-          <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
+          <b id="like-counter-1" class="js-likes-counter">${
+            element.likes
+          }</b> persone
         </div>
       </div>
     </div>
