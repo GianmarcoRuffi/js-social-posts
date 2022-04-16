@@ -104,7 +104,9 @@ document.getElementById("container").innerHTML;
 
 function renderPosts(cards) {
   posts.forEach((element, index) => {
-    document.getElementById("container").innerHTML += ` <div class="post">
+    document.getElementById("container").innerHTML += ` <div id="${
+      element.id
+    }" class="post">
     <div class="post__header">
       <div class="post-meta">
         <div class="post-meta__icon">
@@ -135,9 +137,9 @@ function renderPosts(cards) {
     <div class="post__footer">
       <div class="likes js-likes">
         <div class="likes__cta">
-          <a class="like-button js-like-button" href="#" data-postid="${
+          <a class="like-button js-like-button" href="#${
             element.id
-          }">
+          } " data-postid="${element.id}">
             <i
               class="like-button__icon fas fa-thumbs-up"
               aria-hidden="true"
@@ -170,12 +172,32 @@ console.log(likes);
 
 const likesArray = [];
 
+function addLike(postId) {
+  let targetLikeCounter = document.getElementById("like-counter-" + postId);
+  let currentLikes = parseInt(targetLikeCounter.innerHTML);
+
+  targetLikeCounter.innerHTML = currentLikes + 1;
+}
+
+function removeLike(postId) {
+  let targetLikeCounter = document.getElementById("like-counter-" + postId);
+  let currentLikes = parseInt(targetLikeCounter.innerHTML);
+
+  targetLikeCounter.innerHTML = currentLikes - 1;
+}
+
 // Funzione per aggiungere i Mi Piace
 
 function thumbsUp() {
-  likes.forEach((likes) => {
-    likes.addEventListener("click", function () {
-      likes.classList.add("like-button--liked");
+  likes.forEach((like) => {
+    like.addEventListener("click", function (e) {
+      if (like.classList.contains("like-button--liked")) {
+        like.classList.remove("like-button--liked");
+        removeLike(like.dataset.postid);
+      } else {
+        like.classList.add("like-button--liked");
+        addLike(like.dataset.postid);
+      }
     });
   });
 }
